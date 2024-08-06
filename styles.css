@@ -1,0 +1,390 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000; /* Black background color */
+    color: #fff; /* Default text color to white for better readability */
+}
+
+/* Container Styles */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items at the start to ensure consistency */
+    height: auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8); /* Slightly transparent black for the container */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    position: relative; /* Position relative for the background image */
+    overflow: hidden; /* Hide any overflow from the background image */
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Background Image for Container */
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('background-graphic.jpg'); /* Replace with your graphic image URL */
+    background-size: cover;
+    background-position: center;
+    opacity: 0.1; /* Adjust opacity as needed */
+    z-index: -1; /* Place behind the content */
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 250px;
+    padding: 10px;
+    background-color: #111; /* Very dark gray for sidebar */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    position: relative; /* Position relative for the graphic underline */
+    overflow: hidden; /* Hide any overflow from the graphics */
+    animation: slideInLeft 0.5s ease-in-out;
+}
+
+/* Sidebar Underline Graphic */
+.sidebar::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px; /* Height of the bottom graphic line */
+    background: linear-gradient(to right, #b3e5fc, #03a9f4); /* Gradient effect from light blue to blue */
+    z-index: -1;
+}
+
+/* Profile Styles */
+.profile {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid #fff; /* White border for the profile picture */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Soft white shadow */
+    transition: transform 0.3s; /* Smooth transition for hover effect */
+}
+
+.profile img:hover {
+    transform: scale(1.1); /* Slightly enlarge the image on hover */
+}
+
+.profile h1, .profile h2 {
+    margin: 10px 0;
+}
+
+.social a {
+    color: #fff; /* White color for social icons */
+    margin: 0 5px;
+    font-size: 20px;
+    transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+.social a:hover {
+    color: #b3e5fc; /* Change color to light blue on hover */
+}
+
+/* Navigation Styles */
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 10px 0;
+}
+
+nav ul li a {
+    color: #fff; /* White color for nav links */
+    text-decoration: none;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    position: relative; /* Position relative for the pseudo-elements */
+    padding: 10px; /* Add some padding to make the underline effect more noticeable */
+    transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+nav ul li a::before,
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px; /* Height of the underline */
+    background-color: #b3e5fc; /* Color of the underline */
+    transition: width 0.3s; /* Smooth transition for the underline effect */
+}
+
+nav ul li a::before {
+    right: 50%; /* Start the left underline from the left side */
+}
+
+nav ul li a::after {
+    left: 50%; /* Start the right underline from the right side */
+}
+
+nav ul li a:hover::before,
+nav ul li a:hover::after {
+    width: 50%; /* Expand underline to full width on hover */
+}
+
+nav ul li a:hover {
+    color: #000; /* Change text color to black on hover */
+    background: linear-gradient(to right, #fff 0%, #b3e5fc 50%, #fff 100%);
+    background-size: 200%;
+    animation: shine 1s linear;
+}
+
+/* Main Content Styles */
+.main-content {
+    flex: 1;
+    margin-left: 20px;
+    background-color: #222; /* Darker gray background color for main content */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    animation: slideInRight 0.5s ease-in-out;
+}
+
+/* Section Styles */
+section {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    color: #fff; /* White text color */
+    border-left: 5px solid; /* Border for section highlighting */
+    position: relative; /* Position relative for the graphic underline */
+    overflow: hidden; /* Hide any overflow from the graphics */
+    background-image: url('pattern.png'); /* Add a subtle background pattern image */
+    background-size: cover;
+    background-blend-mode: overlay; /* Blend background pattern with section color */
+    animation: fadeIn 1s ease-in-out;
+    transition: transform 0.3s ease-in-out; /* Smooth transition for pop-up effect */
+}
+
+section:hover {
+    transform: scale(1.02); /* Slightly enlarge section on hover */
+}
+
+/* Specific Section Colors */
+.experience {
+    background-color: #333; /* Dark gray background */
+    border-left-color: #ff6600; /* Orange left border */
+}
+
+.education {
+    background-color: #333; /* Dark gray background */
+    border-left-color: #00cc99; /* Teal left border */
+}
+
+.project {
+    background-color: #333; /* Dark gray background */
+    border-left-color: #b3e5fc; /* Light blue left border */
+}
+
+.case-study {
+    background-color: #333; /* Dark gray background */
+    border-left-color: #cc0000; /* Red left border */
+}
+
+.skills {
+    background-color: #333; /* Dark gray background */
+    border-left-color: #0099ff; /* Blue left border */
+}
+
+.extracurricular {
+    background-color: #333; /* Dark gray background */
+    border-left-color: #6600cc; /* Purple left border */
+}
+
+.languages {
+    background-color: #333; /* Dark gray background */
+    border-left-color: #33cc33; /* Green left border */
+}
+
+/* Heading Highlight on Hover */
+section h2 {
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
+    padding: 5px; /* Add some padding to make the highlight more noticeable */
+    position: relative; /* Position relative for the graphic underline */
+}
+
+section h2::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px; /* Height of the underline */
+    background-color: #b3e5fc; /* Color of the underline */
+    transition: width 0.3s; /* Smooth transition for the underline effect */
+}
+
+section h2:hover::before {
+    width: 100%; /* Full width underline on hover */
+    color: #b3e5fc; /* Change text color to light blue on hover */
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #111; /* Very dark gray for footer */
+    color: #fff; /* White text for footer */
+    border-top: 1px solid #444; /* Subtle border for separation */
+    animation: fadeIn 1s ease-in-out;
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+footer:hover {
+    background: linear-gradient(to right, #111 0%, #444 50%, #111 100%);
+    background-size: 200%;
+    animation: shine 1s linear;
+}
+
+/* Button Styles */
+.btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    font-size: 18px;
+    border: 2px solid #fff; /* White border for buttons */
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #333; /* Dark gray background for buttons */
+    color: #fff; /* White text for buttons */
+    transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+    background-color: #555; /* Slightly lighter gray on hover */
+    border-color: #b3e5fc; /* Light blue border color on hover */
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+/* Index Page Styles */
+.index-container {
+    display: flex;
+    flex-direction: column; /* Arrange items vertically */
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
+    height: 100vh; /* Full viewport height */
+    text-align: center; /* Center text alignment */
+    animation: fadeIn 1s ease-in-out;
+}
+
+.index-container .profile-pic {
+    width: 150px; /* Set width for the profile picture */
+    height: 150px; /* Set height for the profile picture */
+    border-radius: 50%; /* Make it round */
+    object-fit: cover; /* Ensure image covers the area */
+    border: 5px solid #fff; /* White border for the profile picture */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Soft white shadow */
+    transition: transform 0.3s; /* Smooth transition for hover effect */
+}
+
+.index-container .profile-pic:hover {
+    transform: scale(1.1); /* Slightly enlarge the image on hover */
+}
+
+.index-container .btn {
+    width: 200px; /* Fixed width for consistency */
+    margin: 10px 0; /* Add margin between buttons */
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes shine {
+    0% {
+        background-position: -100px;
+    }
+    100% {
+        background-position: 200px;
+    }
+}
+
+/* Wipe Effect Animation */
+@keyframes wipeIn {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+.sidebar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+    z-index: -1;
+    animation: wipeIn 1s ease-in-out;
+}
+
+.main-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+    z-index: -1;
+    animation: wipeIn 1s ease-in-out;
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+    z-index: -1;
+    animation: wipeIn 1s ease-in-out;
+}
